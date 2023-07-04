@@ -41,7 +41,10 @@ func Count(from, to string) (int, response.StatusType) {
 			if t2.Before(tf) {
 				break
 			}
-			res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+			res, status := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+			if status != response.StatusOK {
+				return 0, status
+			}
 			if !res {
 				length++
 			}
@@ -64,7 +67,10 @@ func Calc(from, amount string) (string, response.StatusType) {
 				if length == 0 {
 					break
 				}
-				res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				res, status := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				if status != response.StatusOK {
+					return "", status
+				}
 				if !res {
 					length--
 				}
@@ -77,7 +83,10 @@ func Calc(from, amount string) (string, response.StatusType) {
 				if length == 0 {
 					break
 				}
-				res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				res, status := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				if status != response.StatusOK {
+					return "", status
+				}
 				if !res {
 					length++
 				}
