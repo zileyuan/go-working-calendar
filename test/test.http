@@ -1,0 +1,28 @@
+@host = 127.0.0.1
+@port= 9020
+@baseUrl = http://{{host}}:{{port}}
+
+###
+
+GET {{baseUrl}}/holiday/20241007
+Host: {{host}}
+
+###
+
+GET {{baseUrl}}/workingdays/20221010/20221010
+Host: {{host}}
+
+###
+
+GET {{baseUrl}}/workingdays/20221009/20221011
+Host: {{host}}
+
+###
+
+GET {{baseUrl}}/workingdays/20221011/20221012
+Host: {{host}}
+
+###
+
+GET {{baseUrl}}/workingdate/20221006/3
+Host: {{host}}

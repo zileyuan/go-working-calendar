@@ -1,0 +1,14 @@
+[Common]
+AppName = "go-working-calendar"
+RunMode = "Prod"
+
+# 开发环境配置
+[Dev]
+# HTTP服务启动占用的端口
+HTTPPort = 9020
+
+# 生产环境配置
+[Prod]
+# HTTP服务启动占用的端口
+HTTPPort = 9020
+
