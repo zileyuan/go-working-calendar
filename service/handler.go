@@ -56,20 +56,35 @@ func Count(from, to string) (int, response.StatusType) {
 func Calc(from, amount string) (string, response.StatusType) {
 	t, err1 := util.FromLayout(from, util.DuaDateLayout)
 	a, err2 := strconv.Atoi(amount)
-	if err1 == nil && err2 == nil {
+	if err1 == nil && err2 == nil && a != 0 {
 		tf := t
-		length := a - 1
-		for {
-			if length == 0 {
-				break
+		if a > 0 {
+			length := a - 1
+			for {
+				if length == 0 {
+					break
+				}
+				res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				if !res {
+					length--
+				}
+				tf = tf.AddDate(0, 0, 1)
 			}
-			res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
-			if !res {
-				length--
+			return util.FormatTime(tf, util.DuaDateLayout), response.StatusOK
+		} else {
+			length := a
+			for {
+				if length == 0 {
+					break
+				}
+				res, _ := Holiday(util.FormatTime(tf, util.DuaDateLayout))
+				if !res {
+					length++
+				}
+				tf = tf.AddDate(0, 0, -1)
 			}
-			tf = tf.AddDate(0, 0, 1)
+			return util.FormatTime(tf, util.DuaDateLayout), response.StatusOK
 		}
-		return util.FormatTime(tf, util.DuaDateLayout), response.StatusOK
 	} else {
 		return "", response.StatusParamsError
 	}

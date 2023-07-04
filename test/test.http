@@ -26,3 +26,8 @@ Host: {{host}}
 
 GET {{baseUrl}}/workingdate/20221006/3
 Host: {{host}}
+
+###
+
+GET {{baseUrl}}/workingdate/20221012/-2
+Host: {{host}}
