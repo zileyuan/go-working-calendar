@@ -34,10 +34,10 @@ func CountAction(c *gin.Context) {
 func CalcAction(c *gin.Context) {
 	from := c.Param("from")
 	amount := c.Param("amount")
-	length, status := service.Calc(from, amount)
+	date, status := service.Calc(from, amount)
 	resp := response.Message{
 		Status: status,
-		Data:   length,
+		Data:   date,
 	}
 	c.JSON(http.StatusOK, resp)
 }
