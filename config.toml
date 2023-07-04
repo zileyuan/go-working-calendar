@@ -5,10 +5,10 @@ RunMode = "Prod"
 # 开发环境配置
 [Dev]
 # HTTP服务启动占用的端口
-HTTPPort = 9020
+HTTPPort = 9030
 
 # 生产环境配置
 [Prod]
 # HTTP服务启动占用的端口
-HTTPPort = 9020
+HTTPPort = 9030
 
