@@ -1,0 +1,13 @@
+[Unit]
+Description = Working-calendar Service
+After = network.target
+
+[Service]
+Type = simple
+WorkingDirectory = /opt/go-working-calendar
+ExecStart = /opt/go-working-calendar/go-working-calendar-linux
+Restart = on-failure
+RestartSec = 1s
+
+[Install]
+WantedBy = multi-user.target
