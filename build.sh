@@ -24,6 +24,7 @@ CGO_ENABLED=0 GOOS=${osname} GOARCH=amd64 go build -o dist/${date}/${out}
 cp ./config.toml dist/${date}/config.toml
 cp ./calendar.json dist/${date}/calendar.json
 cp ./go-working-calendar.service dist/${date}/go-working-calendar.service
+cp ./install-service.sh dist/${date}/install-service.sh
 cp ./README.md dist/${date}/README.md
 
 echo "build finish!"
